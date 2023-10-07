@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
 
     return (
-        <div className="bg-fuchsia-700 py-4 flex justify-between text-white font-bold items-center px-14">
+        <div className="bg-green-800 py-4 flex justify-between text-white font-bold items-center px-14">
             <div>
                 {/* <img src={logo} alt="" /> */}
                 <p>Gemstone-Jewelry</p>
