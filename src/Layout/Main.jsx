@@ -1,15 +1,13 @@
 // import React from 'react';
 
-import About from "../Component/About/About";
-import Banner from "../Component/Banner/Banner";
+import { Outlet } from "react-router-dom";
 import Header from "../Component/Header/Header";
 
 const Main = () => {
     return (
         <div>
             <Header></Header>
-            <Banner></Banner>
-            <About></About>
+            <Outlet></Outlet>
         </div>
     );
 };
