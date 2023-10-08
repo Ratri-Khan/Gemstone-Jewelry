@@ -4,8 +4,8 @@ import banner3 from "../../assets/Banner/Banner-3.jpg";
 
 const Banner = () => {
   return (
-    <div className="flex bg-black flex-col sm:flex-row">
-      <div className="w-2/5  rounded-l-md h-[450px] bg-fuchsia-200 pl-8 flex justify-center items-center">
+    <div className="flex flex-col sm:flex-row">
+      <div className="w-4/12  rounded-l-md h-[450px] bg-teal-200 pl-8 flex justify-center items-center">
         <div className="">
           <p className="text-4xl text-center  font-semibold leading-none italic">
             {" "}
@@ -16,7 +16,7 @@ const Banner = () => {
       </div>
       {/* second half */}
       
-      <div className="w-3/5">
+      <div className="w-8/12">
         <div className="carousel w-full">
           <div id="item1" className="carousel-item w-full">
             <img src={banner1} className="w-full h-[450px] rounded-md" />
@@ -29,13 +29,13 @@ const Banner = () => {
           </div>
         </div>
         <div className="flex justify-center w-full py-2 gap-2">
-          <a href="#item1" className="btn bg-fuchsia-600 text-white btn-xs">
+          <a href="#item1" className="btn bg-teal-900 text-white btn-xs">
             1
           </a>
-          <a href="#item2" className="btn bg-fuchsia-600 text-white btn-xs">
+          <a href="#item2" className="btn bg-teal-900 text-white btn-xs">
             2
           </a>
-          <a href="#item3" className="btn bg-fuchsia-600 text-white btn-xs">
+          <a href="#item3" className="btn bg-teal-900 text-white btn-xs">
             3
           </a>
         </div>

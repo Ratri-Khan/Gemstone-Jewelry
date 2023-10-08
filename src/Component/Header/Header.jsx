@@ -4,19 +4,19 @@ import { Link } from "react-router-dom";
 const Header = () => {
 
     return (
-        <div className="bg-black border-b-2 border-fuchsia-500  py-4 flex justify-between text-white font-bold items-center px-14">
+        <div className="bg-teal-900 py-4 flex justify-between text-white font-bold items-center px-14">
             <div>
                 {/* <img src={logo} alt="" /> */}
                 <p>Gemstone-Jewelry</p>
             </div>
             <ul className="flex">
-                <li className="mr-7"><Link to="/">Home</Link></li>
-                <li className="mr-7"><Link to="/allJewelry">All-Jewelry</Link></li>
-                <li className="mr-7"><Link to="/myJewelry">My-jewelry</Link></li>
-                <li className="mr-7"><Link to="/addJewelry"> Add-Jewelry</Link></li>
-                <li className="mr-7"><Link to="/blogs"> Blogs</Link></li>
-                <li className="mr-7"><Link to="/login"> Login</Link></li>
-                <li><Link to="/register"> Register</Link></li>
+                <li className="mr-7"><Link to="/"><small>Home</small></Link></li>
+                <li className="mr-7"><Link to="/allJewelry"><small>All-Jewelry</small></Link></li>
+                <li className="mr-7"><Link to="/myJewelry"><small>My-jewelry</small></Link></li>
+                <li className="mr-7"><Link to="/addJewelry"> <small>Add-Jewelry</small></Link></li>
+                <li className="mr-7"><Link to="/blogs"> <small>Blogs</small></Link></li>
+                <li className="mr-7"><Link to="/login"> <small>Login</small></Link></li>
+                <li><Link to="/register"> <small>Register</small></Link></li>
             </ul>
         </div>
     );
