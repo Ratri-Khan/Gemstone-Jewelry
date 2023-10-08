@@ -39,7 +39,7 @@ const Footer = () => {
       <div className='text-white'>
         <span className="footer-title">Contact Us</span>
         <div className="">
-          <p className=' flex gap-3 items-center'><span><FaMapMarker></FaMapMarker></span>34/4 block-3,Uttora,Dhaka</p>
+          <p className=' flex gap-3 items-center'><span><FaMapMarker></FaMapMarker></span>34/4 block-3,Uttara,Dhaka</p>
           <p className=' flex gap-3 items-center'><span><FaMailBulk></FaMailBulk></span>gemstone@gmail.com</p>
           <p className=' flex gap-3 items-center'><span><FaPhoneAlt></FaPhoneAlt></span>+00327843209</p>
         </div>

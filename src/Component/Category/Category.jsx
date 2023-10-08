@@ -1,24 +1,25 @@
-import {  useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 
 const Category = () => {
-    const [tabtext, setTabText] = useState("Ear Ring");
+  const [tabtext, setTabText] = useState("Ear Ring");
   const [jewelries, setJewelries] = useState([]);
 
   useEffect(() => {
-  fetch(
-    `http://localhost:3000/categories?subCategory=${tabtext}`
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      setJewelries(data)
-    });
+    fetch(
+      `http://localhost:3000/categories?subCategory=${tabtext}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setJewelries(data)
+      });
   }, [tabtext]);
 
- 
+
   return (
     <div className="w-5/6 m-auto">
       <p className="text-5xl font-serif text-center text-white">
@@ -37,27 +38,25 @@ const Category = () => {
             {jewelries.map((jewelry) => (
               <div
                 key={jewelry._id}
-                className="card bg-teal-900 p-3 w-80 shadow-xl"
-              >
+                className="card bg-teal-900 p-3 w-80 shadow-xl">
                 <figure>
                   <img
                     src={jewelry.photoUrl}
                     className="w-full h-60 object-cover"
-                    alt={jewelry.toyName}
-                  />
+                    alt={jewelry.toyName} />
                 </figure>
                 <div className="py-7">
                   <h2 className="">Jewelry Name: {jewelry.toyName}</h2>
                   <h2 className="">Price: ${jewelry.price}</h2>
-                  <h2 className="">Rating: {jewelry.rating}</h2> 
-                  <button className='shadow-white shadow-xl border-2 border-white p-3 rounded mt-3'>view Details</button>                
+                  <h2 className="">Rating: {jewelry.rating}</h2>
+                  <Link to={`/details/${jewelry._id}`}><button className='shadow-white shadow-xl border-2 border-white p-3 rounded mt-3'>view Details</button></Link>
                 </div>
               </div>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div  className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             {jewelries.map((jewelry) => (
               <div
                 key={jewelry._id}
@@ -72,7 +71,7 @@ const Category = () => {
                 <div className="card-body">
                   <h2 className="card-title">Jewelry Name: {jewelry.toyName}</h2>
                   <h2 className="card-title">Price: ${jewelry.price}</h2>
-                  <h2 className="card-title">Rating: {jewelry.rating}</h2>                 
+                  <h2 className="card-title">Rating: {jewelry.rating}</h2>
                 </div>
               </div>
             ))}
@@ -93,7 +92,7 @@ const Category = () => {
                   <h2 className="card-title">JewelryName: {jewelry.toyName}</h2>
                   <h2 className="card-title">Price: ${jewelry.price}</h2>
                   <h2 className="card-title">Rating: {jewelry.rating}</h2>
-                  
+
                 </div>
               </div>
             ))}
