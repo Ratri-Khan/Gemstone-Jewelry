@@ -9,6 +9,7 @@ import SignUp from "../Component/SignUp/Signup";
 import MyJewelry from "../Component/MyJewelry/MyJewelry";
 import PrivateRoute from "./PrivateRoute";
 import Error from "../Component/Error/Error";
+import Blogs from "../Component/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/myJewelry",
         element: <MyJewelry></MyJewelry>
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>
       },
       {
         path: "/details/:_id",
