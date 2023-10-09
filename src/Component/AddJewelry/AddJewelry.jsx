@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
-const AddToys = () => {
+const AddJewelry = () => {
   const [selectValue, setSelectValue] = useState(" ");
-
+  const { user } = useContext(AuthContext);
   const handleAddToy = (e) => {
+    
     e.preventDefault();
     const form = e.target;
     const jewelryName = form.jewelryName.value;
@@ -17,7 +19,7 @@ const AddToys = () => {
     const description = form.description.value;
     // const subCategory = form.subCategory.value;
 
-    const toyInfo = {
+    const jewelryInfo = {
       jewelryName,
       sellerName,
       email,
@@ -31,7 +33,7 @@ const AddToys = () => {
     fetch("http://localhost:3000/jewelry", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(toyInfo),
+      body: JSON.stringify(jewelryInfo),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -53,7 +55,7 @@ const AddToys = () => {
               <label className="label">
                 <span className="label-text">SellerName</span>
               </label>
-              <input type="text" name="sellerName" className="input input-bordered border-teal-900 " placeholder="Enter Seller Name" />
+              <input type="text" name="sellerName" value={user?.displayName} className="input input-bordered border-teal-900 " placeholder="Enter Seller Name" />
             </div>
             <div className="mt-8">
               <select
@@ -71,7 +73,7 @@ const AddToys = () => {
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
-              <input type="email" name="email" className="border-teal-900 input input-bordered" placeholder="Enter Mail" />
+              <input type="email" value={user?.email} name="email" className="border-teal-900 input input-bordered" placeholder="Enter Mail" />
             </div>
             <div>
               <label className="label">
@@ -124,4 +126,4 @@ const AddToys = () => {
   );
 };
 
-export default AddToys;
+export default AddJewelry;

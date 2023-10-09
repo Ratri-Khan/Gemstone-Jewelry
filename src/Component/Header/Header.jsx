@@ -14,47 +14,34 @@ const Header = () => {
     }
 
     return (
-        <div className="bg-teal-900 py-4 flex justify-between text-white font-bold items-center px-14">
+        <div className="bg-teal-900 py-4 md:flex lg:flex justify-between text-white font-bold items-center text-center md:px-14">
             <div>
                 <p>Gemstone-Jewelry</p>
             </div>
-            <ul className="flex">
-
-
-
+            <ul>
                 <li className="mr-7">
                     {
                         user ? <>
                             <p>{user.displayName}</p>
                             <Link to="/" className="mr-7"><small>Home</small></Link>
                             <Link to="/addJewelry" className="mr-7"> <small>Add-Jewelry</small>
-                            </Link>                           
+                            </Link>
                             <Link to="/myJewelry" className="mr-7"><small>My-jewelry</small></Link>
                             <Link to="/allJewelry" className="mr-7"><small>All-Jewelry</small></Link>
                             <Link to="/blogs" className="mr-7"> <small>Blogs</small></Link>
                             <button className="bg-white rounded text-teal-900 px-4 py-2" onClick={handleLogOut}>Logout</button>
                         </> :
                             <>
-                                {/* <li className="mr-7"> */}
                                 <Link to="/" className="mr-7"><small>Home</small></Link>
-                                {/* </li> */}
-                                {/* <li className="mr-7"> */}
+
                                 <Link to="/addJewelry" className="mr-7"> <small>Add-Jewelry</small></Link>
                                 <Link to="/allJewelry" className="mr-7"><small>All-Jewelry</small></Link>
-                                {/* </li> */}
-                                {/* <li className="mr-7"> */}
-                                    
-                                {/* </li> */}
-                                {/* <li className="mr-7"> */}
-                                    <Link to="/blogs" className="mr-7"> <small>Blogs</small></Link>
-                                {/* </li> */}
+                                <Link to="/blogs" className="mr-7"> <small>Blogs</small></Link>
                                 <Link to="/login" className="mr-7"> <small>Login</small></Link>
                                 <Link to="/signUp"> <small>Register</small></Link>
                             </>
                     }
                 </li>
-
-
             </ul>
         </div>
     );

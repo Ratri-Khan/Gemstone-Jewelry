@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCyMLNnr1tD0vy_D6O5VoAc-srQ8y3hlJs",
-  authDomain: "gemstone-jewelry-8a55b.firebaseapp.com",
-  projectId: "gemstone-jewelry-8a55b",
-  storageBucket: "gemstone-jewelry-8a55b.appspot.com",
-  messagingSenderId: "764145392078",
-  appId: "1:764145392078:web:4c4bf6749441ea8f59339f"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase

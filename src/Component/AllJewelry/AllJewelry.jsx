@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 const AllJewelry = () => {
+    const [bookings, setBookings] = useState([]);
     const jewelries = useLoaderData();
     // console.log(allJewelry);
     const handleDelete = _id => {
@@ -15,8 +16,8 @@ const AllJewelry = () => {
                     console.log(data);
                     if (data.deletedCount > 0) {
                         alert('deleted successful');
-                    //     const remaining = bookings.filter(booking => booking._id !== id);
-                    //     setBookings(remaining);
+                        const remaining = bookings.filter(booking => booking._id !== _id);
+                        setBookings(remaining);
                     }
                 })
         }
@@ -56,8 +57,7 @@ const AllJewelry = () => {
                             <td><p>{jewelry.rating}</p></td>
                             <td><p>{jewelry.quantity}</p></td>
                             <th>
-                                <button className="btn btn-ghost btn-xs bg-teal-900 text-white">UPDATE</button><br />
-                                <button className="btn btn-ghost btn-xs bg-teal-900 text-white mt-4"
+                                <button className="btn btn-ghost btn-xs bg-teal-900 text-white"
                                 onClick={() => handleDelete(jewelry._id)}>DELETE</button>
                             </th>
                         </tr>
