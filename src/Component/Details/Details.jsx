@@ -51,7 +51,7 @@ const Details = () => {
 
                 <img
                     src={photoUrl}
-                    alt={`img of ${toyName}`}
+                    alt={`img of ${jewelryName}`}
                     className="w-96 h-96 object-cover"
                 />
             </div>

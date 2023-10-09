@@ -7,6 +7,7 @@ import Details from "../Component/Details/Details";
 import Login from "../Component/Login/Login";
 import SignUp from "../Component/SignUp/Signup";
 import MyJewelry from "../Component/MyJewelry/MyJewelry";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/addJewelry",
-        element: <AddJewelry></AddJewelry>,
+        element: <PrivateRoute><AddJewelry></AddJewelry></PrivateRoute>,
       },
       {
         path: "/login",
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:_id",
-        element: <Details></Details>,
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
         loader: ({ params }) =>fetch(`http://localhost:3000/jewelry/${params._id}`),
       },
       
