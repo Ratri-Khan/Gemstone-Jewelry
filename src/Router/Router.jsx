@@ -6,6 +6,7 @@ import AllJewelry from "../Component/AllJewelry/AllJewelry";
 import Details from "../Component/Details/Details";
 import Login from "../Component/Login/Login";
 import SignUp from "../Component/SignUp/Signup";
+import MyJewelry from "../Component/MyJewelry/MyJewelry";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         path: "/allJewelry",
         element: <AllJewelry></AllJewelry>,
         loader: () => fetch('http://localhost:3000/jewelry')
+      },
+      {
+        path: "/myJewelry",
+        element: <MyJewelry></MyJewelry>
       },
       {
         path: "/details/:_id",
