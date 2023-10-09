@@ -57,15 +57,12 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="text" name='password' placeholder="password" className="input input-bordered" />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
-                        <p className='my-4 text-center'>New to Car Doctors <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
+                        <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link>
                     </div>
                 </div>
             </div>

@@ -3,8 +3,8 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext);
-    const [error ,setError] = useState('');
+    const { createUser, handleGoogleSignIn } = useContext(AuthContext);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -17,18 +17,18 @@ const SignUp = () => {
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
         console.log(name, email, password);
-        
-        if(password.length<6){
+
+        if (password.length < 6) {
             setError('password must be 6 character');
-            return ;
+            return;
         }
-        if (password !== confirmPassword){
+        if (password !== confirmPassword) {
             setError('Your password did not match');
             return
         }
 
 
-        createUser(email, password,name)
+        createUser(email, password, name)
             .then(result => {
                 const user = result.user;
                 console.log('created user', user);
@@ -38,7 +38,16 @@ const SignUp = () => {
             .catch(error => console.log(error))
 
     }
-
+    const handleGoogle = () => {
+        handleGoogleSignIn()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
@@ -66,7 +75,7 @@ const SignUp = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="text" name='password' placeholder="password" className="input input-bordered" />
-                                
+
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -74,20 +83,19 @@ const SignUp = () => {
                                 </label>
                                 <input type="text" name='confirmPassword' placeholder="password" className="input input-bordered" />
                             </div>
-                            <div>
-                            <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
-                            </div>
                             <div className='text-red-700'>
                                 {error}
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Sign Up" />
+                                <input className="btn bg-teal-900 text-white" type="submit" value="Sign Up" />
                             </div>
                         </form>
-                        <p className='my-4 text-center'>Already Have an Account? <Link className='text-orange-600 font-bold' to="/login">Login</Link> </p>
+                        <p className=' text-center'>Already Have an Account? <Link className='text-orange-600 font-bold' to="/login">Login</Link> </p>
+                        <div>
+                        <button onClick={handleGoogle} className='bg-slate-300 rounded p-3' m-auto>Login With Google</button>
                     </div>
+                    </div>
+                   
                 </div>
             </div>
         </div>
