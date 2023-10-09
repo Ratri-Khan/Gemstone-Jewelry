@@ -7,7 +7,7 @@ const Details = () => {
     const Information = useLoaderData();
     console.log(Information)
     const {
-        toyName,
+        jewelryName,
         sellerName,
         email,
         photoUrl,
@@ -22,7 +22,7 @@ const Details = () => {
         <div className='flex  my-9 w-6/12 mx-auto'>
                 <div className='p-8 border-2 bg-teal-900 text-white'>
                     <p>
-                        <span className="font-semibold text-lg">JewelryName:</span> {toyName}
+                        <span className="font-semibold text-lg">JewelryName:</span> {jewelryName}
                     </p>
                     <p>
                         <span className="font-semibold text-lg">SellerName:</span>{" "}

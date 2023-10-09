@@ -7,7 +7,7 @@ const AddToys = () => {
   const handleAddToy = (e) => {
     e.preventDefault();
     const form = e.target;
-    const toyName = form.toyName.value;
+    const jewelryName = form.jewelryName.value;
     const sellerName = form.sellerName.value;
     const email = form.email.value;
     const photoUrl = form.photo.value;
@@ -18,7 +18,7 @@ const AddToys = () => {
     // const subCategory = form.subCategory.value;
 
     const toyInfo = {
-      toyName,
+      jewelryName,
       sellerName,
       email,
       photoUrl,
@@ -77,7 +77,7 @@ const AddToys = () => {
               <label className="label">
                 <span className="label-text">Jewelry Name</span>
               </label>
-              <input type="text" name="toyName" placeholder="Jewelry Name" className="border-teal-900 input input-bordered" />
+              <input type="text" name="jewelryName" placeholder="Jewelry Name" className="border-teal-900 input input-bordered" />
             </div>
 
             <div>

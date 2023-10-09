@@ -12,7 +12,7 @@ import {
 const Footer = () => {
   return (
    
-    <footer className="footer p-10 bg-stone-800 text-base-content">
+    <footer className="footer p-10 bg-teal-800 text-base-content">
       <div className="items-center grid-flow-col">
         
         <p className='text-white'>

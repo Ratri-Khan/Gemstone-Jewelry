@@ -43,10 +43,10 @@ const Category = () => {
                   <img
                     src={jewelry.photoUrl}
                     className="w-full h-60 object-cover"
-                    alt={jewelry.toyName} />
+                    alt={jewelry.jewelryName} />
                 </figure>
                 <div className="py-7">
-                  <h2 className="">Jewelry Name: {jewelry.toyName}</h2>
+                  <h2 className="">Jewelry Name: {jewelry.jewelryName}</h2>
                   <h2 className="">Price: ${jewelry.price}</h2>
                   <h2 className="">Rating: {jewelry.rating}</h2>
                   <Link to={`/details/${jewelry._id}`}><button className='shadow-white shadow-xl border-2 border-white p-3 rounded mt-3'>view Details</button></Link>
@@ -56,43 +56,44 @@ const Category = () => {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-3 w-full">
             {jewelries.map((jewelry) => (
               <div
                 key={jewelry._id}
-                className="card w-96 mx-auto bg-base-100 shadow-xl shadow-pink-500">
+                className="card bg-teal-900 p-3 w-80 shadow-xl">
                 <figure>
                   <img
                     src={jewelry.photoUrl}
-                    className="w-60 h-60 object-cover"
-                    alt={jewelry.toyName}
-                  />
+                    className="w-full h-60 object-cover"
+                    alt={jewelry.jewelryName} />
                 </figure>
-                <div className="card-body">
-                  <h2 className="card-title">Jewelry Name: {jewelry.toyName}</h2>
-                  <h2 className="card-title">Price: ${jewelry.price}</h2>
-                  <h2 className="card-title">Rating: {jewelry.rating}</h2>
+                <div className="py-7">
+                  <h2 className="">Jewelry Name: {jewelry.jewelryName}</h2>
+                  <h2 className="">Price: ${jewelry.price}</h2>
+                  <h2 className="">Rating: {jewelry.rating}</h2>
+                  <Link to={`/details/${jewelry._id}`}><button className='shadow-white shadow-xl border-2 border-white p-3 rounded mt-3'>view Details</button></Link>
                 </div>
               </div>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-3 w-full">
             {jewelries.map((jewelry) => (
-              <div key={jewelry._id} className="card w-96 mx-auto bg-base-100 shadow-xl  shadow-pink-500">
+              <div
+                key={jewelry._id}
+                className="card bg-teal-900 p-3 w-80 shadow-xl">
                 <figure>
                   <img
                     src={jewelry.photoUrl}
-                    className="w-60 h-60 object-cover"
-                    alt={jewelry.toyName}
-                  />
+                    className="w-full h-60 object-cover"
+                    alt={jewelry.jewelryName} />
                 </figure>
-                <div className="card-body">
-                  <h2 className="card-title">JewelryName: {jewelry.toyName}</h2>
-                  <h2 className="card-title">Price: ${jewelry.price}</h2>
-                  <h2 className="card-title">Rating: {jewelry.rating}</h2>
-
+                <div className="py-7">
+                  <h2 className="">Jewelry Name: {jewelry.jewelryName}</h2>
+                  <h2 className="">Price: ${jewelry.price}</h2>
+                  <h2 className="">Rating: {jewelry.rating}</h2>
+                  <Link to={`/details/${jewelry._id}`}><button className='shadow-white shadow-xl border-2 border-white p-3 rounded mt-3'>view Details</button></Link>
                 </div>
               </div>
             ))}

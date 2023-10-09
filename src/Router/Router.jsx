@@ -3,8 +3,9 @@ import Main from "../Layout/Main";
 import Home from "../Component/Home/Home";
 import AddJewelry from "../Component/AddJewelry/AddJewelry";
 import AllJewelry from "../Component/AllJewelry/AllJewelry";
-import Footer from "../Component/Footer/Footer";
 import Details from "../Component/Details/Details";
+import Login from "../Component/Login/Login";
+import SignUp from "../Component/SignUp/Signup";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,14 @@ const router = createBrowserRouter([
       {
         path: "/addJewelry",
         element: <AddJewelry></AddJewelry>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signUp",
+        element: <SignUp></SignUp>,
       },
       {
         path: "/allJewelry",
