@@ -8,6 +8,7 @@ import Login from "../Component/Login/Login";
 import SignUp from "../Component/SignUp/Signup";
 import MyJewelry from "../Component/MyJewelry/MyJewelry";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../Component/Error/Error";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
       },
       
     ],
+    errorElement: <Error></Error>
   },
 ]);
 export default router;

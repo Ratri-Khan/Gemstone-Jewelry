@@ -4,7 +4,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 // import logo from '../../assets/logo.png'
 
 const Header = () => {
-    const { user ,logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     // console.log(user);
     const handleLogOut = () => {
         logOut()
@@ -16,37 +16,42 @@ const Header = () => {
     return (
         <div className="bg-teal-900 py-4 flex justify-between text-white font-bold items-center px-14">
             <div>
-                {/* <img src={logo} alt="" /> */}
                 <p>Gemstone-Jewelry</p>
             </div>
             <ul className="flex">
+
+
+
                 <li className="mr-7">
-                    <Link to="/"><small>Home</small></Link>
-                </li>
-                <li className="mr-7">
-                    <Link to="/allJewelry"><small>All-Jewelry</small></Link>
-                </li>
-                <li className="mr-7">
-                    <Link to="/myJewelry"><small>My-jewelry</small></Link>
-                </li>
-                <li className="mr-7">
-                    <Link to="/addJewelry"> <small>Add-Jewelry</small></Link>
-                </li>
-                <li className="mr-7">
-                    <Link to="/blogs"> <small>Blogs</small></Link>
-                </li>
-                <li className="mr-7">
-                {
-                    user ? <>
-                        {/* <img src={user.displayURL} alt="" /> */}
-                        <p>{user.displayName}</p>
-                        <button className="bg-white rounded text-teal-900 px-4 py-2" onClick={handleLogOut}>Logout</button>
+                    {
+                        user ? <>
+                            <p>{user.displayName}</p>
+                            <Link to="/" className="mr-7"><small>Home</small></Link>
+                            <Link to="/addJewelry" className="mr-7"> <small>Add-Jewelry</small>
+                            </Link>                           
+                            <Link to="/myJewelry" className="mr-7"><small>My-jewelry</small></Link>
+                            <Link to="/allJewelry" className="mr-7"><small>All-Jewelry</small></Link>
+                            <Link to="/blogs" className="mr-7"> <small>Blogs</small></Link>
+                            <button className="bg-white rounded text-teal-900 px-4 py-2" onClick={handleLogOut}>Logout</button>
                         </> :
-                        <>
-                            <Link to="/login"> <small>Login</small></Link>
-                            <Link to="/signUp"> <small>Register</small></Link>
-                        </>
-                }
+                            <>
+                                {/* <li className="mr-7"> */}
+                                <Link to="/" className="mr-7"><small>Home</small></Link>
+                                {/* </li> */}
+                                {/* <li className="mr-7"> */}
+                                <Link to="/addJewelry" className="mr-7"> <small>Add-Jewelry</small></Link>
+                                <Link to="/allJewelry" className="mr-7"><small>All-Jewelry</small></Link>
+                                {/* </li> */}
+                                {/* <li className="mr-7"> */}
+                                    
+                                {/* </li> */}
+                                {/* <li className="mr-7"> */}
+                                    <Link to="/blogs" className="mr-7"> <small>Blogs</small></Link>
+                                {/* </li> */}
+                                <Link to="/login" className="mr-7"> <small>Login</small></Link>
+                                <Link to="/signUp"> <small>Register</small></Link>
+                            </>
+                    }
                 </li>
 
 

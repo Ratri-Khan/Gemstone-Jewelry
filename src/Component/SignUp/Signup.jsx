@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
@@ -6,6 +6,8 @@ const SignUp = () => {
     const { createUser } = useContext(AuthContext);
     const [error ,setError] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -30,7 +32,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log('created user', user);
-                navigate('/')
+                navigate(from, { replace: true })
                 // navigate(from, { replace: true })
             })
             .catch(error => console.log(error))
