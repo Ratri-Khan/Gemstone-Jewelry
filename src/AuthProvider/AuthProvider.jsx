@@ -1,28 +1,57 @@
-import React, { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import React, { createContext, useEffect, useState } from 'react';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../Firebase/Firebase.Config';
+// import app from '../firebase/firebase.config';
 
 
-export const AuthContext = createContext();
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider(); 
 
-const AuthProvider = ({children}) => {
-    const signIn = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password);
+export const AuthContext = createContext(null);
+
+const AuthProviders = ({children}) => {
+
+    const [user,setUser] = useState(null);
+    const [loading,setLoading] = useState(true);
+
+    const handleGoogleSignIn = () =>{
+        signInWithPopup(auth,provider);
     }
-    const createUser = (email, password) => {
-        // setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password);
+
+
+    const createUser = (email,password,displayName) =>{
+       return createUserWithEmailAndPassword(auth,email,password,displayName);
     }
+    const signIn = (email,password) =>{
+        return signInWithEmailAndPassword(auth,email,password);
+    }
+    const logOut = () =>{
+       return signOut(auth);
+    }
+    useEffect(()=>{
+       const unsubscribe = onAuthStateChanged(auth,currentUser =>{
+            console.log('auth state change' , currentUser);
+            setUser(currentUser);
+            setLoading(false);
+        });
+        return () =>{
+            unsubscribe();
+        }
+    },[])
+
     const authInfo ={
-        signIn, 
-        createUser
+        user,
+        loading,
+        handleGoogleSignIn,
+        createUser,
+        signIn,
+        logOut
     }
     return (
         <AuthContext.Provider value={authInfo}>
-            {children}
+              {children}
         </AuthContext.Provider>
     );
 };
 
-export default AuthProvider;
+export default AuthProviders;

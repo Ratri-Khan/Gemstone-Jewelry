@@ -1,20 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const SignUp = () => {
-
     const { createUser } = useContext(AuthContext);
     const [error ,setError] = useState('');
+    const navigate = useNavigate();
 
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
+        const name = form.displayName.value;
         const email = form.email.value;
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
         console.log(name, email, password);
+        
         if(password.length<6){
             setError('password must be 6 character');
             return ;
@@ -25,10 +26,12 @@ const SignUp = () => {
         }
 
 
-        createUser(email, password)
+        createUser(email, password,name)
             .then(result => {
                 const user = result.user;
-                console.log('created user', user)
+                console.log('created user', user);
+                navigate('/')
+                // navigate(from, { replace: true })
             })
             .catch(error => console.log(error))
 
@@ -48,7 +51,7 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="name" className="input input-bordered" />
+                                <input type="text" name="displayName" placeholder="name" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">

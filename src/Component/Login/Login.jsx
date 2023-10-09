@@ -5,11 +5,11 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext);
+    const {user, signIn } = useContext(AuthContext);
+    console.log(user,signIn);
     
     const navigate = useNavigate();
     const location = useLocation();
-    console.log('login page location', location)
     const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event => {
@@ -17,18 +17,18 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password)
+        // console.log(name, email, password)
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
             })
             .catch(error => console.log(error));
 
             signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 navigate(from, { replace: true })
             })
             .catch(error => {
