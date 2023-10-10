@@ -5,7 +5,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
-    // console.log(user);
+    console.log(user);
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -22,7 +22,6 @@ const Header = () => {
                 <li className="mr-7">
                     {
                         user ? <>
-                            <p>{user.displayName}</p>
                             <Link to="/" className="mr-7"><small>Home</small></Link>
                             <Link to="/addJewelry" className="mr-7"> <small>Add-Jewelry</small>
                             </Link>

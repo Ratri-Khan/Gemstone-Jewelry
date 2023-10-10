@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const SignUp = () => {
-    const { createUser, handleGoogleSignIn } = useContext(AuthContext);
+    const { createUser, handleGoogleSignIn ,updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
@@ -16,7 +16,7 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
-        console.log(name, email, password);
+        // console.log(name, email, password);
 
         if (password.length < 6) {
             setError('password must be 6 character');
@@ -28,9 +28,13 @@ const SignUp = () => {
         }
 
 
-        createUser(email, password, name)
+        createUser(email, password)
             .then(result => {
                 const user = result.user;
+                updateUserProfile({
+                    displayName: name,
+                    // photoURL: imgURL
+                })
                 console.log('created user', user);
                 navigate(from, { replace: true })
                 // navigate(from, { replace: true })

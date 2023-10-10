@@ -8,7 +8,7 @@ const AllJewelry = () => {
     const handleDelete = _id => {
         const proceed = confirm('Are You sure you want to delete');
         if (proceed) {
-            fetch(`http://localhost:3000/jewelry/${_id}`, {
+            fetch(`https://gemstone-jewelry-server.vercel.app/jewelry/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

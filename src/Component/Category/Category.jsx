@@ -10,7 +10,7 @@ const Category = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/categories?subCategory=${tabtext}`
+      `https://gemstone-jewelry-server.vercel.app/categories?subCategory=${tabtext}`
     )
       .then((res) => res.json())
       .then((data) => {

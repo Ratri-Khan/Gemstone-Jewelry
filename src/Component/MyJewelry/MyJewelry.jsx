@@ -7,7 +7,7 @@ const MyJewelry = () => {
   console.log(user?.email);
   const [jewelries, setJewelries] = useState([]);
   
-    const url = `http://localhost:3000/bookings?email=${user?.email}`;
+    const url = `https://gemstone-jewelry-server.vercel.app/bookings?email=${user?.email}`;
     // const url = 'http://localhost:3000/bookings?email=dina@gmail.com';
     useEffect(() => {
         fetch(url)

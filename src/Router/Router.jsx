@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: "/allJewelry",
         element: <AllJewelry></AllJewelry>,
-        loader: () => fetch('http://localhost:3000/jewelry')
+        loader: () => fetch('https://gemstone-jewelry-server.vercel.app/jewelry')
       },
       {
         path: "/myJewelry",
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       {
         path: "/details/:_id",
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({ params }) =>fetch(`http://localhost:3000/jewelry/${params._id}`),
+        loader: ({ params }) =>fetch(`https://gemstone-jewelry-server.vercel.app/jewelry/${params._id}`),
       },
       
     ],

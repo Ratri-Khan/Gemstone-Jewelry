@@ -30,7 +30,7 @@ const AddJewelry = () => {
       description,
       subCategory: selectValue,
     };
-    fetch("http://localhost:3000/jewelry", {
+    fetch("https://gemstone-jewelry-server.vercel.app/jewelry", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(jewelryInfo),
